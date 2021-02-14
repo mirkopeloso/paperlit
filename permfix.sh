@@ -14,6 +14,7 @@ find . -type d -exec chmod 750 {} +
 echo "[*] Setting files to 644 (RW for the owner, R for group, R for others)"
 find . -type f -exec chmod 644 {} +
 
+
 echo "[*] Setting public directories to 770 (RWX for the owner, RWX for group and no perms for others)"
 sudo chmod -R 770 storage
 sudo chmod -R 770 vendor

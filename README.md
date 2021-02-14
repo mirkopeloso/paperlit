@@ -37,8 +37,11 @@ oppure configurare i parametri dell'env secondo il proprio database
 
 
 su Laravel:  
+
+git clone https://github.com/mirkopeloso/paperlit.git  
 composer install  
 php artisan breeze:install  
+git reset --hard  
 php artisan migrate:fresh  
 sudo n stable  
 npm install && npm run dev  
