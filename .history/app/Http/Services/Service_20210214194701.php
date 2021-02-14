@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use DB;
 use Hash;
+use Log;
 use Str;
 
 class Service

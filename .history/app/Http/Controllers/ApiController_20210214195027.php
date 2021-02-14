@@ -17,9 +17,9 @@ class ApiController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Parse an xml subscription file
+     * Undocumented function
      *
-     * @param Request   $request    with xml as body content
+     * @param Request $request
      * @return void
      */
     public function fileUpload(Request $request)
@@ -37,10 +37,7 @@ class ApiController extends BaseController
         Log::debug('======================================= UPLOAD STARTED');
         Log::debug('======================================= UPLOAD STARTED');
 
-        Log::debug('======================================= UPLOAD STARTED');
-
-
-        if ($request->getContent()) {
+        if ($request->file()) {
             $content = $request->getContent();
 
             $xml       = simplexml_load_string($content);
@@ -62,13 +59,7 @@ class ApiController extends BaseController
         }
     }
 
-    /**
-     * Returns the user
-     *
-     * @param integer   $id     the user id
-     * @return User     $user   with attached subscriptions
-     */
-    public function user(int $id):User
+    public function user(int $id)
     {
         return User::with('subscriptions')->findOrFail($id);
     }

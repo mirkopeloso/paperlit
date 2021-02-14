@@ -37,10 +37,7 @@ class ApiController extends BaseController
         Log::debug('======================================= UPLOAD STARTED');
         Log::debug('======================================= UPLOAD STARTED');
 
-        Log::debug('======================================= UPLOAD STARTED');
-
-
-        if ($request->getContent()) {
+        if ($request->file()) {
             $content = $request->getContent();
 
             $xml       = simplexml_load_string($content);
