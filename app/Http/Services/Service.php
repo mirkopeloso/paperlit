@@ -14,7 +14,7 @@ class Service
 {
 
     /**
-     * Undocumented function
+     * Parse and validates an array of subscribers
      *
      * @param array $ss    the array of parsed xml subscriptions
      * @return array       an associative array with fields for frontend/rest response

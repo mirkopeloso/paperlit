@@ -15,20 +15,17 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    /**
+     * Parse an xml subscription file
+     *
+     * @param FileUploadRequest $request    simple request validated
+     * @return void
+     */
     public function fileUpload(FileUploadRequest $request)
     {
 
         //clearing database FOR TESTING
         Artisan::call('migrate:fresh');
-
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
 
         if ($request->file()) {
             $content = $request->file('file')->get();

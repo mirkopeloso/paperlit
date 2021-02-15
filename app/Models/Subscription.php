@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Model;
 use DateTimeInterface;
 
+/**
+ * @author Mirko Peloso <mirko.peloso@gmail.com>
+ *
+ * Class for user subscriptions
+ */
 class Subscription extends Model
 {
 
