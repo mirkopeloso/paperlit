@@ -28,18 +28,6 @@ class ApiController extends BaseController
         //clearing database FOR TESTING
         Artisan::call('migrate:fresh');
 
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-        Log::debug('======================================= UPLOAD STARTED');
-
-        Log::debug('======================================= UPLOAD STARTED');
-
-
         if ($request->getContent()) {
             $content = $request->getContent();
 
@@ -51,14 +39,7 @@ class ApiController extends BaseController
 
             $result = Service::parse($ss);
 
-            if ($result['status'] == 'failed') {
-                return back()->with('errorUser', json_encode($result['user']))
-                    ->withErrors($result['errors']);
-            }
-
-            return back()
-                ->with('success', 'File has been uploaded.')
-                ->with('result', $result['objects']);
+            return $result;
         }
     }
 

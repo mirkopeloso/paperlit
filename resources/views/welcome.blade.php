@@ -94,7 +94,7 @@
 
                                         @if (count($errors) > 0)
                                           <div class="alert alert-danger">
-                                          <h4>Error for user ID {{Session::get('errorUser')}}</h4>
+                                          <h4>Error for user {{Session::get('errorUser')}}</h4>
                                               <ul>
                                                   @foreach ($errors->all() as $error)
                                                     <li>{{ $error }}</li>

@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "e491bc31-2574-4b89-ba1e-838c574aeaac",
+		"name": "paperlit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "file upload",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<subscribers>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200810</timestamp>\n      <user>410343867</user>\n      <name>BONINI</name>\n      <start>20200718</start>\n      <stop>20210717</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200514</timestamp>\n      <user>519849749</user>\n      <name>TRICARICO</name>\n      <start>20200418</start>\n      <stop>20201023</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200904</timestamp>\n      <user>520033267</user>\n      <name>NISI</name>\n      <start>20200821</start>\n      <stop>20210820</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200427</timestamp>\n      <user>520180522</user>\n      <name>PONZIO</name>\n      <start>20200418</start>\n      <stop>20210417</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200807</timestamp>\n      <user>520392515</user>\n      <name>DIGIOVANNI</name>\n      <start>20200718</start>\n      <stop>20201023</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200808</timestamp>\n      <user>520392515</user>\n      <name>DIGIOVANNI</name>\n      <start>20200618</start>\n      <stop>20200620</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200703</timestamp>\n      <user>520481466</user>\n      <name>GIUPPONI</name>\n      <start>20200619</start>\n      <stop>20200918</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200701</timestamp>\n      <user>520583675</user>\n      <name>PATELLI</name>\n      <start>20200619</start>\n      <stop>20210618</stop>\n   </subscriber>\n   <subscriber>\n      <publication>154</publication>\n      <timestamp>20200317</timestamp>\n      <user>520783101</user>\n      <name>NICCOLINI</name>\n      <start>20200221</start>\n      <stop>20210219</stop>\n   </subscriber>\n</subscribers>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "paperlit.boneato.com/api/fileUpload",
+					"host": [
+						"paperlit",
+						"boneato",
+						"com"
+					],
+					"path": [
+						"api",
+						"fileUpload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user abbos",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "paperlit.boneato.com/api/user/598991271",
+					"host": [
+						"paperlit",
+						"boneato",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						"598991271"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

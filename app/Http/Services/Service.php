@@ -13,15 +13,20 @@ use Str;
 class Service
 {
 
+    /**
+     * Undocumented function
+     *
+     * @param array $ss    the array of parsed xml subscriptions
+     * @return array       an associative array with fields for frontend/rest response
+     */
     public static function parse(array $ss): array
     {
 
         DB::beginTransaction();
-        $subscribers = [];
         foreach ($ss as $s) {
-
+            $subscriber = new Subscriber();
             try {
-                $subscriber = new Subscriber();
+
                 if ($subscriber->validate($s)) {
 
                     $subscriber->publication = $s['publication'];
@@ -30,7 +35,6 @@ class Service
                     $subscriber->name        = $s['name'];
                     $subscriber->start       = Carbon::createFromFormat('Ymd', $s['start']);
                     $subscriber->stop        = Carbon::createFromFormat('Ymd', $s['stop']);
-                    $subscribers[]           = $subscriber;
 
                     $user = User::firstOrCreate(
                         [
@@ -46,18 +50,24 @@ class Service
                 } else {
                     DB::rollback();
                     $errors = $subscriber->errors();
-                    return ['status' => 'failed', 'user' => $user, 'errors' => $errors];
+                    return ['status' => 'failed', 'object' => $s, 'errors' => $errors];
                 }
             } catch (\Exception $e) {
                 DB::rollback();
                 Log::error($e);
-                return ['status' => 'failed', 'user' => 'generic', 'errors' => [$e->getMessage()]];
+                return ['status' => 'failed', 'object' => $s, 'errors' => [$e->getMessage()]];
             }
         }
         DB::commit();
         return ['status' => 'success', 'objects' => User::all()];
     }
 
+    /**
+     * Creates an user and attached subscription from subscriber object
+     *
+     * @param Subscriber $subscriber    the subscriber object created from xml parser
+     * @return void
+     */
     private static function createAbboRangesForSubscriber(Subscriber $subscriber)
     {
         $startDay = $subscriber->start;
@@ -98,6 +108,15 @@ class Service
 
     }
 
+    /**
+     * Create a subscription from a date range
+     *
+     * @param integer $user_id  the subscription user id
+     * @param Carbon $startDay  the subscription start day
+     * @param Carbon $stopDay   the subscription start day
+     * @param integer $days     the subscription name (days number)
+     * @return Subscription
+     */
     private static function createAbboSubscription(int $user_id, Carbon $startDay, Carbon $stopDay, int $days): Subscription
     {
         $subscription          = new Subscription();
